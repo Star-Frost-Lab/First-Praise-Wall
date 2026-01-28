@@ -1,0 +1,15 @@
+# First Praise Wall - Cloudflare JavaScript Workers 配置
+name = "first-praise-wall"
+main = "worker.js"
+compatibility_date = "2024-12-01"
+
+# Durable Objects 绑定
+[durable_objects]
+bindings = [
+    { name = "PRAISE_WALL", class_name = "PraiseWall" }
+]
+
+# Durable Objects 迁移（首次部署需要）
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["PraiseWall"]
